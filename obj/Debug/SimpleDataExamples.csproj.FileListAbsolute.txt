@@ -1,0 +1,9 @@
+C:\Projekty\!Testy\SimpleDataExamples\SimpleDataExamples\bin\Debug\SimpleDataExamples.exe.config
+C:\Projekty\!Testy\SimpleDataExamples\SimpleDataExamples\bin\Debug\SimpleDataExamples.exe
+C:\Projekty\!Testy\SimpleDataExamples\SimpleDataExamples\bin\Debug\SimpleDataExamples.pdb
+C:\Projekty\!Testy\SimpleDataExamples\SimpleDataExamples\bin\Debug\Simple.Data.Ado.dll
+C:\Projekty\!Testy\SimpleDataExamples\SimpleDataExamples\bin\Debug\Simple.Data.dll
+C:\Projekty\!Testy\SimpleDataExamples\SimpleDataExamples\bin\Debug\Simple.Data.SqlServer.dll
+C:\Projekty\!Testy\SimpleDataExamples\SimpleDataExamples\obj\Debug\SimpleDataExamples.csprojResolveAssemblyReference.cache
+C:\Projekty\!Testy\SimpleDataExamples\SimpleDataExamples\obj\Debug\SimpleDataExamples.exe
+C:\Projekty\!Testy\SimpleDataExamples\SimpleDataExamples\obj\Debug\SimpleDataExamples.pdb
