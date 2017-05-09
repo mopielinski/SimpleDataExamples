@@ -1,7 +1,7 @@
 ﻿using System;
 using Simple.Data;
 
-namespace SimpleDataTest.RetrievingData
+namespace SimpleDataExamples.RetrievingData
 {
     public class Example05Scalar
     {
@@ -19,12 +19,12 @@ namespace SimpleDataTest.RetrievingData
             //var value = db.HotelAppVersion.Any(db.HotelAppVersion.AppVersionId == 4);
             //same way as Exists
 
-            ////The GetScalar method returns a single scalar value as a simple type given values for the primary key columns of that table
+            //The GetScalar method returns a single scalar value as a simple type given values for the primary key columns of that table
             //var value =
             //    db.HotelAppVersion.All()
             //        .Select(db.HotelAppVersion.PriceSources)
             //        .Where(db.HotelAppVersion.AppVersionId == 1)
-            //        .GetScalar(1);
+            //        .GetScalar(3);
 
             Console.WriteLine($"Value: {value}");
         }

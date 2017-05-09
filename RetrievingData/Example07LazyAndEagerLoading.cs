@@ -1,8 +1,7 @@
 ﻿using System;
 using Simple.Data;
-using SimpleDataTest.Models;
 
-namespace SimpleDataTest.RetrievingData
+namespace SimpleDataExamples.RetrievingData
 {
     public class Example07LazyAndEagerLoading
     {
@@ -12,28 +11,17 @@ namespace SimpleDataTest.RetrievingData
 
             //Lazy Loading
             // taking one HotelAppVersion and connected AppVersion
-            var hotelAppVer = db.HotelAppVersion.FindAll(db.HotelAppVersion.HotelId == 2695).FirstOrDefault();
+            var hotelAppVer = db.HotelAppVersion
+                .FindAll(db.HotelAppVersion.HotelId == 2695)
+                .FirstOrDefault();
 
-            //not working if we cast result to statically typed object
+            // !!! It will not work if we cast result to statically typed object
             //HotelAppVersion hotelAppVer =
             //    db.HotelAppVersion.FindAll(db.HotelAppVersion.HotelId == 2695).FirstOrDefault();
-
+            Console.WriteLine("Lazy Loading");
             Console.WriteLine($"Id: {hotelAppVer.Id}, AppVersionId: {hotelAppVer.AppVersionId}");
             //AppVersion is evaluated until accessed for the first time (loaded here)
-            Console.WriteLine($"Id: {hotelAppVer.AppVersion.Name}");
-
-            Console.WriteLine("\n\n");
-
-            //Lazy Loading - other way
-            // taking AppVersion and all connected HotelAppVersions
-            var appVera = db.appVersion.Get(1);
-            Console.WriteLine($"Id: {appVera.Name}");
-
-            foreach (var appVer in appVera.HotelAppVersion)
-            {
-                Console.WriteLine(
-                    $"Id: {appVer.Id}, AppVersionId: {appVer.AppVersionId}, HotelId: {appVer.HotelId}");
-            }
+            Console.WriteLine($"AppVersion.Name: {hotelAppVer.AppVersion.Name}");
 
             Console.WriteLine("\n\n");
 
@@ -41,7 +29,12 @@ namespace SimpleDataTest.RetrievingData
             //WithAppVersion() - AppVersion will be loaded with HotelAppVersion (but also is not evaluated until accessed for the first time)
             //WithAppVersion is like LEFT JOIN AppVersion
             var hotelAppVerEv =
-                db.HotelAppVersion.FindAll(db.HotelAppVersion.HotelId == 2695).WithAppVersion().FirstOrDefault();
+                db.HotelAppVersion
+                    .FindAll(db.HotelAppVersion.HotelId == 2695)
+                    .WithAppVersion()
+                    .FirstOrDefault();
+
+            Console.WriteLine("Eager Evaluation");
             Console.WriteLine($"Id: {hotelAppVerEv.Id}, AppVersionId: {hotelAppVerEv.AppVersionId}");
             Console.WriteLine($"Id: {hotelAppVerEv.AppVersion.Name}");
 

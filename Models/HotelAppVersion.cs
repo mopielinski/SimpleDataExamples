@@ -1,4 +1,4 @@
-﻿namespace SimpleDataTest.Models
+﻿namespace SimpleDataExamples.Models
 {
     public class HotelAppVersion
     {

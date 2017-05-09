@@ -1,7 +1,7 @@
 ﻿using System;
 using Simple.Data;
 
-namespace SimpleDataTest.RetrievingData
+namespace SimpleDataExamples.RetrievingData
 {
     public class Example03FindAll
     {

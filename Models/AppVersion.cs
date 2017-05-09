@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace SimpleDataTest.Models
+namespace SimpleDataExamples.Models
 {
     public class AppVersion
     {

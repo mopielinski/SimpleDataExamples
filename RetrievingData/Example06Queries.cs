@@ -1,7 +1,7 @@
 ﻿using System;
 using Simple.Data;
 
-namespace SimpleDataTest.RetrievingData
+namespace SimpleDataExamples.RetrievingData
 {
     public class Example06Queries
     {
@@ -9,8 +9,12 @@ namespace SimpleDataTest.RetrievingData
         {
             var db = Database.OpenNamedConnection("PriceOptimizer");
 
+            Console.WriteLine("1. query");
+            // Gets some fields (return HotelAppVersion.Id as HotelAppVersionId) from HotelAppVersion 
+            //  where HotelId != 2881 AND AppVersionId IN (1, 2) AND PriceSources == "[2,3,5]"
+            //  order it by HotelId
             var appVerList = db.HotelAppVersion.FindAll(db.HotelAppVersion.HotelId != 2881)
-                .Select(db.HotelAppVersion.Id.As("HotelAppVersionId"),
+                .Select(db.HotelAppVersion.Id.As("HotelAppVersionId"), //alias
                     db.HotelAppVersion.AppVersionId,
                     db.HotelAppVersion.PriceSources,
                     db.HotelAppVersion.HotelId)
@@ -21,7 +25,8 @@ namespace SimpleDataTest.RetrievingData
 
             //select [dbo].[HotelAppVersion].[Id] AS [HotelAppVersionId],[dbo].[HotelAppVersion].[AppVersionId],[dbo].[HotelAppVersion].[PriceSources],[dbo].[HotelAppVersion].[HotelId] 
             //from [dbo].[HotelAppVersion]
-            //WHERE (([dbo].[HotelAppVersion].[HotelId] != @p1 AND ([dbo].[HotelAppVersion].[AppVersionId] = @p2 OR [dbo].[HotelAppVersion].[AppVersionId] = @p3)) AND [dbo].[HotelAppVersion].[PriceSources] = @p4)
+            //WHERE (([dbo].[HotelAppVersion].[HotelId] != @p1 AND ([dbo].[HotelAppVersion].[AppVersionId] = @p2 OR [dbo].[HotelAppVersion].[AppVersionId] = @p3)) 
+            //AND [dbo].[HotelAppVersion].[PriceSources] = @p4)
 
             foreach (var appVer in appVerList)
             {
@@ -30,9 +35,9 @@ namespace SimpleDataTest.RetrievingData
             }
 
             Console.WriteLine();
-            Console.WriteLine("Selecting all columns");
+            Console.WriteLine("2. query: Selecting all columns");
 
-            //Selecting all columns
+            //Selecting all columns: .AllColumns() / .Star()
             var appVerListAll = db.HotelAppVersion.All().Select(db.HotelAppVersion.AllColumns());
             //var appVerListAll = db.HotelAppVersion.All().Select(db.HotelAppVersion.Star());
 
@@ -43,16 +48,17 @@ namespace SimpleDataTest.RetrievingData
             }
 
             Console.WriteLine();
-            Console.WriteLine("Distinct");
+            Console.WriteLine("3. Distinct");
 
+            // .Distinct() (many columns)
             var appVerListDistinct =
                 db.HotelAppVersion.All()
-                    .Select(db.HotelAppVersion.AppVersionId.Distinct());
+                    .Select(db.HotelAppVersion.AppVersionId.Distinct(), db.HotelAppVersion.LengthOfStay);
 
             foreach (var appVer in appVerListDistinct)
             {
                 Console.WriteLine(
-                    $"AppVersionId: {appVer.AppVersionId}");
+                    $"AppVersionId: {appVer.AppVersionId} LengthOfStay: {appVer.LengthOfStay}");
             }
         }
     }
