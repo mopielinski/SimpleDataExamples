@@ -6,3 +6,4 @@ C:\Projekty\Git\SimpleDataExamples\bin\Debug\Simple.Data.dll
 C:\Projekty\Git\SimpleDataExamples\bin\Debug\Simple.Data.SqlServer.dll
 C:\Projekty\Git\SimpleDataExamples\obj\Debug\SimpleDataExamples.exe
 C:\Projekty\Git\SimpleDataExamples\obj\Debug\SimpleDataExamples.pdb
+C:\Projekty\Git\SimpleDataExamples\obj\Debug\SimpleDataExamples.csprojResolveAssemblyReference.cache

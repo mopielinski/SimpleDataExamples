@@ -66,6 +66,7 @@
     <Compile Include="RetrievingData\Example05Scalar.cs" />
     <Compile Include="RetrievingData\Example06Queries.cs" />
     <Compile Include="RetrievingData\Example07LazyAndEagerLoading.cs" />
+    <Compile Include="RetrievingData\Example10ModifyData.cs" />
     <Compile Include="RetrievingData\Example09Aggregates.cs" />
     <Compile Include="RetrievingData\Example08Joins.cs" />
   </ItemGroup>

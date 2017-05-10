@@ -9,6 +9,8 @@ namespace SimpleDataExamples.Models
             this.HotelAppVersions = new List<HotelAppVersion>();
         }
 
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public string VersionDetails { get; set; }
